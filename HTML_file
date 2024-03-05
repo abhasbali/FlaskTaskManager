@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+</head>
+<body>
+    <h1>Task Manager</h1>
+    <form action="/add_task" method="post">
+        <input type="text" name="task" placeholder="Enter task">
+        <button type="submit">Add Task</button>
+    </form>
+    <ul>
+        {% for idx, task in enumerate(tasks) %}
+            <li>{{ task }} <form action="/delete_task/{{ idx }}" method="post"><button type="submit">Delete</button></form></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
